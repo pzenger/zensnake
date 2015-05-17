@@ -1,5 +1,5 @@
 {
-  "name": "ZenSnake",
+  "name": "zensnake",
   "version": "1.0.0",
   "description": "Classic Snake gama made in EmberJS as a warmup project",
   "private": true,
