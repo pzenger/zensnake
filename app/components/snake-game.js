@@ -77,7 +77,6 @@ export default Ember.Component.extend({
     // For the next update loop
     Em.$(document).keydown(function(event) {
       event.preventDefault();
-      // let code = event.charCode;
       let code = event.keyCode;
       switch (code) {
         case 38:
