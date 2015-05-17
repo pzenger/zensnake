@@ -1,0 +1,16 @@
+{{snake-game/z-score
+  score=score
+  high=highScore
+  restart="restart"
+  isInfinite=infinite
+  toggleInfinite="toggleInfinite"}}
+
+{{#if started}}
+  {{#if playing}}
+    {{snake-game/z-arena grid=displayGrid}}
+  {{else}}
+    {{snake-game/z-gameover score=score high=highScore}}
+  {{/if}}
+{{else}}
+  {{snake-game/z-instructions restart="restart"}}
+{{/if}}
