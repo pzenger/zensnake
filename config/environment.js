@@ -2,10 +2,15 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'snake',
+    contentSecurityPolicy: {
+     'default-src': "'none'",
+     'font-src': "'self' data: maxcdn.bootstrapcdn.com",
+     'style-src': "'self' 'unsafe-inline' maxcdn.bootstrapcdn.com",
+    },
+    modulePrefix: 'zensnake',
     environment: environment,
     baseURL: '/zensnake',
-    locationType: 'hash',
+    locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

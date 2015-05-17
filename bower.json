@@ -1,5 +1,5 @@
 {
-  "name": "snake",
+  "name": "zensnake",
   "dependencies": {
     "ember": "components/ember#canary",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",

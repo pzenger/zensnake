@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 
   actions: {
     restart: function() {
-      this.sendAction('restart')
+      this.sendAction('restart');
     }
   }
 });

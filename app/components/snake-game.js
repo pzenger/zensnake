@@ -9,7 +9,7 @@ function matrix(rows, cols, value) {
     for (let j = 0; j < cols; j++) {
       temp.push(value);
     }
-    m.push(temp)
+    m.push(temp);
   }
   return m;
 }
@@ -62,11 +62,11 @@ export default Ember.Component.extend({
 
     snakeBody.forEach(function(point) {
       grid[point[0]][point[1]] = 1;
-    })
+    });
 
     points.forEach(function(point) {
       grid[point[0]][point[1]] = 10;
-    })
+    });
 
     return grid;
   },
@@ -75,24 +75,28 @@ export default Ember.Component.extend({
     let self = this;
     // Capture keyboard events and assign proper directional data
     // For the next update loop
-    $(document).keypress(function(event) {
+    Em.$(document).keypress(function(event) {
       let code = event.charCode;
       switch (code) {
         case 119: // W
-          if (self.get('directionLast') !== 'down')
-            self.set('direction', 'up')
+          if (self.get('directionLast') !== 'down'){
+            self.set('direction', 'up');
+          }
           break;
         case 97: // A
-          if (self.get('directionLast') !== 'right')
+          if (self.get('directionLast') !== 'right'){
             self.set('direction', 'left');
+          }
           break;
         case 115: // S
-          if (self.get('directionLast') !== 'up')
+          if (self.get('directionLast') !== 'up'){
             self.set('direction', 'down');
+          }
           break;
         case 100: // D
-          if (self.get('directionLast') !== 'left')
+          if (self.get('directionLast') !== 'left'){
             self.set('direction', 'right');
+          }
           break;
         default:
           break;
@@ -103,7 +107,7 @@ export default Ember.Component.extend({
   setSpeed: function() {
     let self = this;
     if (speedInterval) {
-      window.clearInterval(speedInterval)
+      window.clearInterval(speedInterval);
     }
 
     speedInterval = setInterval(function() {
@@ -116,7 +120,7 @@ export default Ember.Component.extend({
     if(!this.get('playing')){
       return;
     }
-    this.set('directionLast', dir)
+    this.set('directionLast', dir);
     let snakeHead = this.get('snakeHead');
     let snakeBody = this.get('snakeBody');
 
@@ -210,7 +214,9 @@ export default Ember.Component.extend({
       });
 
     this.set('points', updatedPoints);
-    grow ? "yes" : snakeBody.shiftObject();
+    if(!grow){
+      snakeBody.shiftObject();
+    }
 
     // Check self.body collisions
     snakeBody.forEach(function(part) {
@@ -218,7 +224,7 @@ export default Ember.Component.extend({
         self.set('playing', false);
         return;
       }
-    })
+    });
 
   },
 
@@ -238,7 +244,7 @@ export default Ember.Component.extend({
   initGrid: function() {
     var board = matrix(this.get('height'), this.get('width'), 0);
 
-    let points = Em.A([])
+    let points = Em.A([]);
     for(let i = 0; i < 2; i++){
       let randY = Math.floor(Math.random() * (this.get('height')-2)) + 2;
       let randX = Math.floor(Math.random() * (this.get('width')-2)) + 2;
