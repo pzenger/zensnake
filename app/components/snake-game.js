@@ -75,25 +75,31 @@ export default Ember.Component.extend({
     let self = this;
     // Capture keyboard events and assign proper directional data
     // For the next update loop
-    Em.$(document).keypress(function(event) {
-      let code = event.charCode;
+    Em.$(document).keydown(function(event) {
+      event.preventDefault();
+      // let code = event.charCode;
+      let code = event.keyCode;
       switch (code) {
-        case 119: // W
+        case 38:
+        case 87:
           if (self.get('directionLast') !== 'down'){
             self.set('direction', 'up');
           }
           break;
-        case 97: // A
+        case 65:
+        case 37: // A
           if (self.get('directionLast') !== 'right'){
             self.set('direction', 'left');
           }
           break;
-        case 115: // S
+        case 40:
+        case 83: // S
           if (self.get('directionLast') !== 'up'){
             self.set('direction', 'down');
           }
           break;
-        case 100: // D
+        case 39:
+        case 68: // D
           if (self.get('directionLast') !== 'left'){
             self.set('direction', 'right');
           }
