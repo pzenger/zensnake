@@ -87,19 +87,19 @@ export default Ember.Component.extend({
           }
           break;
         case 65:
-        case 37: // A
+        case 37:
           if (self.get('directionLast') !== 'right'){
             self.set('direction', 'left');
           }
           break;
         case 40:
-        case 83: // S
+        case 83:
           if (self.get('directionLast') !== 'up'){
             self.set('direction', 'down');
           }
           break;
         case 39:
-        case 68: // D
+        case 68:
           if (self.get('directionLast') !== 'left'){
             self.set('direction', 'right');
           }
