@@ -1,0 +1,10 @@
+
+{{#each row in grid}}
+
+  <div class="c-row">
+    {{#each col in row}}
+      {{snake-game/z-arena/z-block num=col}}
+    {{/each}}
+  </div>
+
+{{/each}}

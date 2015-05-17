@@ -1,0 +1,18 @@
+<div class="c-row text-center">
+  <div class="col-md-35">
+    <h3>Score: {{score}}</h3>
+  </div>
+  <div class="col-md-15 bottom">
+    <h3>
+      <button class="btn btn-default"{{action "restart"}}>Restart</button>
+    </h3>
+  </div>
+  <div class="col-md-15 bottom">
+    <h3>
+      {{is-infinite infinite=isInfinite action="toggleInfinite"}}
+    </h3>
+  </div>
+  <div class="col-md-35">
+    <h3>High: {{high}}</h3>
+  </div>
+</div>
